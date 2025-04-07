@@ -4963,6 +4963,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedGoal: 2
+  fadeOut:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.9979248
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.99780273
+      value: -0.009021759
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fadeOutDuration: 10
+  meshRenderer: {fileID: 8303867968782829807}
 --- !u!135 &6496507328078105320
 SphereCollider:
   m_ObjectHideFlags: 0
