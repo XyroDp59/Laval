@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/Vseau.unity
     guid: a5fe70770e31243ae992efd828eb7a5a
+  - enabled: 0
+    path: Assets/Project/Scenes/Xyro.unity
+    guid: b05d3aa27d2aa1948905d0dc1c3e57cf
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7189653bbffb442d284c3e3042b34afe, type: 2}

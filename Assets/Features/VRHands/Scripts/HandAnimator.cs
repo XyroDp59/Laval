@@ -3,10 +3,12 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
 
 [RequireComponent(typeof(Animator))]
 public class HandAnimator : MonoBehaviour
 {
+    [SerializeField] private bool isRight;
     private bool _isHolding;
     private bool _isTriggering;
     
@@ -61,6 +63,12 @@ public class HandAnimator : MonoBehaviour
             default:
                 return 1.0f;
         }
+    }
+
+    public void Rumble(float amplitude, float duration)
+    {
+        if(isRight) Player.Instance.RightRumble(amplitude, duration);
+        else Player.Instance.LeftRumble(amplitude, duration);
     }
 
     /// <summary>
