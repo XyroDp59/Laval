@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1624242423600202188}
   - component: {fileID: 8762579093846923711}
   m_Layer: 0
-  m_Name: Pyramiide4_lePlusGrandEventDe2025
+  m_Name: Pyramiide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.758793, y: -25.150906, z: -64.2812}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7032227131031094231}
   - {fileID: 5369826654698226283}
