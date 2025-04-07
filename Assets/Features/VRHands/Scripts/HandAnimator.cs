@@ -1,12 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit.Inputs.Readers;
 
 [RequireComponent(typeof(Animator))]
 public class HandAnimator : MonoBehaviour
 {
+    private bool _isHolding;
+    private bool _isTriggering;
+    
     public enum ObjectHeldType
     {
         None,
@@ -36,7 +39,9 @@ public class HandAnimator : MonoBehaviour
 
     #endregion Method 2 Parameters
 
-    private Animator handAnimator = null;
+    private Animator handAnimator;
+    
+    public bool ClosedFist() => _isTriggering && _isHolding;
     
     public void SetConstructionBlockGrabbed(bool grabbed)
     {
@@ -49,13 +54,10 @@ public class HandAnimator : MonoBehaviour
         {
             case ObjectHeldType.None:
                 return 1.0f;
-                break;
             case ObjectHeldType.ConstructionBlock:
                 return 0.25f;
-                break;
             case ObjectHeldType.Egyptian:
                 return 0.75f;
-                break;
             default:
                 return 1.0f;
         }
@@ -130,38 +132,42 @@ public class HandAnimator : MonoBehaviour
 
     private void GripAction_performed(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(grippingFingers, ClosureRatio());
-        AnimateActionInput(grippingFingers);
+        _isHolding = true;
+        StartCoroutine(SetFingerAnimationValues(grippingFingers, 0, true));
+        StartCoroutine(AnimateActionInput(grippingFingers));
     }
 
     private void TriggerAction_performed(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(pointingFingers, ClosureRatio());
-        AnimateActionInput(pointingFingers);
+        _isTriggering = true;
+        StartCoroutine(SetFingerAnimationValues(pointingFingers, 0, true));
+        StartCoroutine(AnimateActionInput(pointingFingers));
     }
 
     private void PrimaryAction_performed(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(primaryFingers, ClosureRatio());
-        AnimateActionInput(primaryFingers);
+        StartCoroutine(SetFingerAnimationValues(primaryFingers, 0, true));
+        StartCoroutine(AnimateActionInput(primaryFingers));
     }
 
     private void GripAction_canceled(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(grippingFingers, 0.0f);
-        AnimateActionInput(grippingFingers);
+        _isHolding = false;
+        StartCoroutine(SetFingerAnimationValues(grippingFingers, 0.0f));
+        StartCoroutine(AnimateActionInput(grippingFingers));
     }
 
     private void TriggerAction_canceled(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(pointingFingers, 0.0f);
-        AnimateActionInput(pointingFingers);
+        _isTriggering = false;
+        StartCoroutine(SetFingerAnimationValues(pointingFingers, 0.0f));
+        StartCoroutine(AnimateActionInput(pointingFingers));
     }
 
     private void PrimaryAction_canceled(InputAction.CallbackContext obj)
     {
-        SetFingerAnimationValues(primaryFingers, 0.0f);
-        AnimateActionInput(primaryFingers);
+        StartCoroutine(SetFingerAnimationValues(primaryFingers, 0.0f));
+        StartCoroutine(AnimateActionInput(primaryFingers));
     }
 
     #endregion Method 1
@@ -194,16 +200,22 @@ public class HandAnimator : MonoBehaviour
 
     #endregion Method 2
 
-    public void SetFingerAnimationValues(List<Finger> fingersToAnimate, float targetValue)
+    public IEnumerator SetFingerAnimationValues(List<Finger> fingersToAnimate, float targetValue, bool recalculate = false)
     {
+        yield return null;
+        if (recalculate)
+        {
+            targetValue = ClosureRatio();
+        }
         foreach (Finger finger in fingersToAnimate)
         {
             finger.target = targetValue;
         }
     }
 
-    public void AnimateActionInput(List<Finger> fingersToAnimate)
+    public IEnumerator AnimateActionInput(List<Finger> fingersToAnimate)
     {
+        yield return null;
         foreach (Finger finger in fingersToAnimate)
         {
             var fingerName = finger.type.ToString();
