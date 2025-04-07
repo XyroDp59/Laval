@@ -9,6 +9,8 @@ TagManager:
   - Left
   - Weapon
   - Shield
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX
