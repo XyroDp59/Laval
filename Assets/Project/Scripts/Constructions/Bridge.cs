@@ -8,16 +8,22 @@ public class Bridge : MonoBehaviour
     [SerializeField] Transform entry;
     [SerializeField] Transform exit;
     List<Egyptian> _egyptiansOn = new List<Egyptian>();
+    UnityEngine.AI.NavMeshObstacle _obstacle;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _obstacle = GetComponent<UnityEngine.AI.NavMeshObstacle>();
+        if (gameObject.name == "Bridge (1)"){
+                StartCoroutine(niqueTaMere());
+            }
     }
-
+IEnumerator niqueTaMere(){
+    yield return new WaitForSeconds(20);
+    Break();
+}
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public bool IsValid(){
@@ -41,9 +47,16 @@ public class Bridge : MonoBehaviour
     }
 
     public void Break(){
+        _obstacle.center = new Vector3(0f,0f,0f);
+        _isBroken = true;
         foreach (Egyptian temp in _egyptiansOn){
             temp.Die();
         }
         _egyptiansOn.Clear();
+    }
+
+    public void Repair(){
+        _isBroken = false;
+        _obstacle.center = new Vector3(0f,0f,1f);
     }
 }
