@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _egyptianModel: {fileID: 0}
+  PointOfInterests: []
   pyramids:
   - {fileID: 485519091}
   - {fileID: 1860764510}
@@ -762,6 +763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  validMesh: {fileID: 0}
+  brokenMesh: {fileID: 0}
   _isBroken: 0
   entry: {fileID: 1957413461}
   exit: {fileID: 1294765517}
@@ -1528,6 +1531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  validMesh: {fileID: 0}
+  brokenMesh: {fileID: 0}
   _isBroken: 0
   entry: {fileID: 1506942040}
   exit: {fileID: 1010700661}
@@ -1651,6 +1656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  validMesh: {fileID: 0}
+  brokenMesh: {fileID: 0}
   _isBroken: 0
   entry: {fileID: 1605039301}
   exit: {fileID: 382956270}
@@ -1879,6 +1886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  validMesh: {fileID: 0}
+  brokenMesh: {fileID: 0}
   _isBroken: 0
   entry: {fileID: 1521122686}
   exit: {fileID: 1882826829}
@@ -2520,17 +2529,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoatSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7313724207230446391, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
+      propertyPath: secondsBetweenSpawns
+      value: 1.57
+      objectReference: {fileID: 0}
     - target: {fileID: 8913184336136508721, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 199
       objectReference: {fileID: 0}
     - target: {fileID: 8913184336136508721, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8.77
       objectReference: {fileID: 0}
     - target: {fileID: 8913184336136508721, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 484.24
       objectReference: {fileID: 0}
     - target: {fileID: 8913184336136508721, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
       propertyPath: m_LocalRotation.w
