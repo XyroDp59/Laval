@@ -46,7 +46,7 @@ public class Egyptian : MonoBehaviour
         float speed = currentVelocity.magnitude; // Vitesse actuelle en m/s
         
         _animator.SetFloat("SoldatSpeed", speed);
-        if (_posToGo != null &&  (_posToGo - transform.position).sqrMagnitude < 10) // Arrive à destination ?
+        if (_posToGo != null &&  (_posToGo - transform.position).sqrMagnitude < 30) // Arrive à destination ?
         {
             switch(_state){
                 case -1:
@@ -133,13 +133,23 @@ public class Egyptian : MonoBehaviour
 
 
     bool HasThingToDo(){
-        
+
         foreach (var poi in _scQuarry.GetPOI()){
             if ((poi.position - transform.position).sqrMagnitude < poi.range * poi.range){
                 _idThingToDo = poi.id;
                 _posThingToDo = poi.position;
                 _rangeThingToDo = poi.range;
                 return true;
+            }
+
+            if (poi.id ==0){
+                Vector3 newPos = new Vector3(poi.position.x, 0f,poi.position.z);
+                if ((newPos - transform.position).sqrMagnitude < poi.range * poi.range){
+                    
+                _idThingToDo = poi.id;
+                _posThingToDo = poi.position;
+                _rangeThingToDo = poi.range;
+                }
             }
         }
         return false;
