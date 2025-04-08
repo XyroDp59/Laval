@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ public class Boat : MonoBehaviour
     private NavMeshAgent agent;
     private Vector3 targetPosition = Vector3.zero;
     NavMeshPath path;
+    GameEvent gameEvent;
     
     [SerializeField] private float minSpeed;
     private void OnTriggerEnter(Collider other)
@@ -19,12 +21,14 @@ public class Boat : MonoBehaviour
             {
                 handAnimator.Rumble(1, 0.2f);
                 Destroy(gameObject);
+                gameEvent.RemoveEventFromQuarry();
             }
         }
     }
 
     private void Start()
     {
+        gameEvent = new GameEvent();
         agent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
     }

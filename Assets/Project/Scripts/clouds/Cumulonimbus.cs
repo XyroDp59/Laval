@@ -21,7 +21,7 @@ public class Cumulonimbus : MonoBehaviour
 
         gameEvent = gameObject.GetComponent<GameEvent>();
 
-        gameEvent.SetRange(radius);
+        gameEvent.SetRange(150);
         gameEvent.SetPosition();
         Debug.Log(gameEvent.range);
         Debug.Log(gameEvent.position);

@@ -47,8 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - {fileID: 822701608169582403}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -5405076975408467413, guid: e4bdb503b895f4874ab86b2cd2b97f51, type: 3}
   quarry: {fileID: 0}
 --- !u!1001 &767597251287361831
 PrefabInstance:
@@ -140,6 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  range: 0
+  Eventid: 0
   id: 0
 --- !u!4 &8960302584961108693 stripped
 Transform:

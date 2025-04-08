@@ -8,6 +8,8 @@ public class EventManager : MonoBehaviour
     [SerializeField] public Quarry quarry;
     public static EventManager instance;
 
+    [SerializeField] List<BoatSpawner> boatSpawns;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -32,7 +34,16 @@ public class EventManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         Debug.Log("spawned new event");
-        Instantiate(events[Random.Range(0, events.Count)], transform);
+        GameEvent g = events[Random.Range(0, events.Count)];
+
+        if(g.Eventid == EventID.BOAT) {
+            Transform t = boatSpawns[Random.Range(0, boatSpawns.Count)].transform;
+            if(t.childCount == 0) {
+                GameEvent g1 = Instantiate(g, t);
+                g1.AddEventToQuarry();
+            }
+        }
+        else Instantiate(g, transform);
         
         StartCoroutine(InstantiateEvents());
     }
