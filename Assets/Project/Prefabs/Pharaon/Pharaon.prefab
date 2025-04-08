@@ -106,7 +106,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -5201,7 +5201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldParticles: {fileID: 4082342518258367553}
   particlesCollider: {fileID: 2894372473078046666}
-  minSpeed: 1
+  minSpeed: 1.5
 --- !u!1 &7035156453689335175
 GameObject:
   m_ObjectHideFlags: 0
