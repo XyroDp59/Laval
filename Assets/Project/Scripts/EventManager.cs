@@ -32,7 +32,7 @@ public class EventManager : MonoBehaviour
     //boucle recursive, qui termine pas
     IEnumerator InstantiateEvents()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
         Debug.Log("spawned new event");
         GameEvent g = events[Random.Range(0, events.Count)];
 
