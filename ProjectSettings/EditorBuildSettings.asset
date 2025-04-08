@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Project/Scenes/Xyro.unity
     guid: b05d3aa27d2aa1948905d0dc1c3e57cf
-  - enabled: 0
+  - enabled: 1
     path: Assets/Project/Scenes/MainMenu.unity
     guid: ad13068c86df8ed40951f26be50d95ba
   - enabled: 1

@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Boat : MonoBehaviour
 {
@@ -36,16 +37,24 @@ public class Boat : MonoBehaviour
     private void FixedUpdate()
     {
         if (agent.CalculatePath(targetPosition, path) && targetPosition != Vector3.zero) return;
-        foreach (var bridge in UnbreakableBridges.Bridges)
+        /*foreach (var bridge in UnbreakableBridges.Bridges)
         {
             if (agent.CalculatePath(bridge.position, path))
             {
                 agent.SetDestination(bridge.position);
-                Debug.Log(bridge.name);
+                //Debug.Log(bridge.name);
                 targetPosition = bridge.position;
                 return;
             }
-            Debug.Log("no destination");
+            //Debug.Log("no destination");
+        }*/
+        /*
+        var bridge = UnbreakableBridges.Bridges[Random.Range(0, UnbreakableBridges.Bridges.Count)];
+        if (agent.CalculatePath(bridge.position, path))
+        {
+            agent.SetDestination(bridge.position);
+            //Debug.Log(bridge.name);
+            targetPosition = bridge.position;
         }
     }*/
 }
