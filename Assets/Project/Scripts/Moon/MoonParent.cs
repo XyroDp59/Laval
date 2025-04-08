@@ -4,12 +4,14 @@ public class MoonParent : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private MeshRenderer meshRendererVisuals;
     private Vector3 originalRotation;
 
     private void Start()
     {
         originalRotation = transform.eulerAngles;
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRendererVisuals.enabled = false;
+        meshRenderer.enabled = true;
     }
     
     private void Update()
@@ -18,13 +20,15 @@ public class MoonParent : MonoBehaviour
         transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, transform.localEulerAngles.z);
     }
 
-    private void OnSelect()
+    public void OnSelect()
     {
         meshRenderer.enabled = false;
+        meshRendererVisuals.enabled = true;
     }
 
-    private void OnDeselect()
+    public void OnDeselect()
     {
         meshRenderer.enabled = true;
+        meshRendererVisuals.enabled = false;
     }
 }
