@@ -50,6 +50,11 @@ public class HandAnimator : MonoBehaviour
         objectHeld = grabbed ? ObjectHeldType.ConstructionBlock : ObjectHeldType.None;
     }
 
+    public void SetEgyptianGrabbed(bool grabbed)
+    {
+        objectHeld = grabbed ? ObjectHeldType.Egyptian : ObjectHeldType.None;
+    }
+
     private float ClosureRatio()
     {
         switch (objectHeld)
