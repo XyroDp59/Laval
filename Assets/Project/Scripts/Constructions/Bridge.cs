@@ -14,7 +14,8 @@ public class Bridge : MonoBehaviour
     {
         _obstacle = GetComponent<UnityEngine.AI.NavMeshObstacle>();
         if (gameObject.name == "Pont (1)"){
-                StartCoroutine(niqueTaMere());
+                Break();
+                //StartCoroutine(niqueTaMere());
             }
     }
 IEnumerator niqueTaMere(){

@@ -14,6 +14,10 @@ public class Egyptian : MonoBehaviour
     private int _state;
     private Vector3 _posToGo;
     private int _idThingToDo;
+    private Vector3 _posThingToDo;
+    private float _rangeThingToDo;
+    private bool isGoingEvent = false;
+    private bool hasChangedPos = true;
     private Bridge _bridgeToPass;
     private Pyramid _pyramidToBuild;
     private int _idBridgeBack;
@@ -30,7 +34,7 @@ public class Egyptian : MonoBehaviour
         } else {
             Debug.Log("no quarry found");
         }
-        _posToGo = _posQuarry;
+        SetPosToGo(_posQuarry);
     }
 
     // Update is called once per frame
@@ -49,15 +53,15 @@ public class Egyptian : MonoBehaviour
                     if (_bridgeToPass.IsValid()){
                         _state = 1;
                         _bridgeToPass.Pass(this);
-                        _posToGo = _bridgeToPass.GetExitPos();
+                        SetPosToGo(_bridgeToPass.GetExitPos());
                     } else {
                         _state = -1;
-                        _posToGo = _posQuarry;
+                        SetPosToGo(_posQuarry);
                     }
                     break;
                 case 1:
                     _state = 2;
-                    _posToGo = _pyramidToBuild.GetPos();
+                    SetPosToGo(_pyramidToBuild.GetPos());
                     break;
                 case 2:
                 _pyramidToBuild.AddBlockToPyramide();
@@ -70,14 +74,14 @@ public class Egyptian : MonoBehaviour
                     if (_bridgeToPass.IsValid()){
                         _state = 4;
                         _bridgeToPass.Pass(this);
-                        _posToGo = _bridgeToPass.GetEntryPos();
+                        SetPosToGo(_bridgeToPass.GetEntryPos());
                     } else {
                         _idBridgeBack = _scQuarry.GiveDirectionBack(this, _idBridgeBack);
                     }
                     break;
                 case 4:
                     _state = -1;
-                    _posToGo = _posQuarry;
+                    SetPosToGo(_posQuarry);
                     break;
 
             }
@@ -89,22 +93,46 @@ public class Egyptian : MonoBehaviour
 
     void Behaviour(){
         if (HasThingToDo()){
+            Debug.Log("hasThingToDo");
             switch (_idThingToDo){
-                case 0 : 
+                case 0 : //rain
+                    agent.isStopped = true;
+                    break;
+                case 1 : //boat
+                    if (!isGoingEvent){
+                        if (UnityEngine.AI.NavMesh.SamplePosition(_posThingToDo, out UnityEngine.AI.NavMeshHit hit, _rangeThingToDo , UnityEngine.AI.NavMesh.AllAreas))
+                            {
+                                agent.ResetPath();
+                                agent.SetDestination(hit.position);
+                                isGoingEvent = true;
+                            }
+                    }
+                    break;
+                case 2 : //nuit
                     agent.isStopped = true;
                     break;
             }
         } else {
             agent.isStopped = false;
-            agent.SetDestination(_posToGo); 
+            //agent.ResetPath();
+            if (isGoingEvent || hasChangedPos){
+
+                        agent.ResetPath();
+                        agent.SetDestination(_posToGo);
+                        hasChangedPos = false;
+            }
+            isGoingEvent = false;
         }
     }
 
 
     bool HasThingToDo(){
+        
         foreach (var poi in _scQuarry.GetPOI()){
             if ((poi.position - transform.position).sqrMagnitude < poi.range * poi.range){
                 _idThingToDo = poi.id;
+                _posThingToDo = poi.position;
+                _rangeThingToDo = poi.range;
                 return true;
             }
         }
@@ -117,6 +145,7 @@ public class Egyptian : MonoBehaviour
     }
 
     public void SetPosToGo(Vector3 pos){
+        hasChangedPos = true;
         _posToGo = pos;
     }
 

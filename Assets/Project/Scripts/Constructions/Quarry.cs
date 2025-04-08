@@ -30,6 +30,7 @@ public class Quarry : MonoBehaviour
         }
 
         StartCoroutine(CreateEgyptians());
+        //StartCoroutine(CreateBoat());
     }
 
     IEnumerator CreateEgyptians(){
@@ -37,6 +38,15 @@ public class Quarry : MonoBehaviour
             CreateEgyptian();
             yield return new WaitForSeconds(0.2f);
         }
+    }
+    IEnumerator CreateBoat(){
+        yield return new WaitForSeconds(10f);
+        Debug.Log("begin event");
+        var temp = (new Vector3(95f,12.3f,426.3f), 200f, 1);
+        PointOfInterests.Add(temp);
+        yield return new WaitForSeconds(20f);
+        Debug.Log("end event");
+        PointOfInterests.Clear();
     }
 
     // Update is called once per frame
