@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyableBlock : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float minSpeed;
+    [SerializeField] private GameObject spawnPoint;
+    [SerializeField] private GameObject constructionBlock;
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.TryGetComponent(out XRControllerSpeed controller))
+        {
+            HandAnimator handAnimator = other.GetComponentInChildren<HandAnimator>();
+            if (!handAnimator) return;
+            if (controller.GetControllerSpeed().magnitude > minSpeed && handAnimator.ClosedFist())
+            {
+                handAnimator.Rumble(1, 0.2f);
+                GetPunched();
+            }
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void GetPunched()
     {
-        
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(constructionBlock, spawnPoint.transform.position, Quaternion.identity);
+        }
     }
 }
