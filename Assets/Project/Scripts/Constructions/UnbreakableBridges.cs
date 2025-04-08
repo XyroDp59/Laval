@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class UnbreakableBridges : MonoBehaviour
 {
-    public static List<UnbreakableBridges> Bridges;
+    [SerializeField] private Transform target;
+    public static List<Transform> Bridges;
     void Start()
     {
-        Bridges ??= new List<UnbreakableBridges>();
-        Bridges.Add(this);
+        Bridges ??= new List<Transform>();
+        Bridges.Add(target);
     }
 }
