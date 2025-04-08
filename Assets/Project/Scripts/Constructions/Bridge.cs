@@ -5,14 +5,20 @@ using UnityEngine;
 public class Bridge : MonoBehaviour
 {
     public static List<Bridge> Bridges;
+    [SerializeField] Mesh validMesh;
+    [SerializeField] Mesh brokenMesh;
+
     [SerializeField] bool _isBroken;
     [SerializeField] Transform entry;
     [SerializeField] Transform exit;
     List<Egyptian> _egyptiansOn = new List<Egyptian>();
+    MeshFilter _meshFilter;
     UnityEngine.AI.NavMeshObstacle _obstacle;
     // Start is called before the first frame update
     void Start()
     {
+        
+        _meshFilter = GetComponent<MeshFilter>();
         Bridges ??= new List<Bridge>();
         Bridges.Add(this);
         _obstacle = GetComponent<UnityEngine.AI.NavMeshObstacle>();
@@ -51,6 +57,7 @@ IEnumerator niqueTaMere(){
     }
 
     public void Break(){
+        _meshFilter.mesh = brokenMesh;
         _obstacle.center = new Vector3(0f,0f,0f);
         _isBroken = true;
         foreach (Egyptian temp in _egyptiansOn){
@@ -60,6 +67,7 @@ IEnumerator niqueTaMere(){
     }
 
     public void Repair(){
+        _meshFilter.mesh = validMesh;
         _isBroken = false;
         _obstacle.center = new Vector3(0f,0f,1f);
     }
