@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+
 
 public class Cloud : MonoBehaviour
 {
@@ -13,11 +10,6 @@ public class Cloud : MonoBehaviour
     [SerializeField] private Renderer meshRenderer;
 
     private float maxSpeed;
-
-    private void Start()
-    {
-        StartCoroutine(DestroyCloud());
-    }
 
     private void OnTriggerStay(Collider collision)
     {

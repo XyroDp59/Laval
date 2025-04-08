@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudPrefab: {fileID: 0}
-  radius: 10
-  density: 5
+  radius: 15
+  number: 0.3
+  minCloudNeededRatio: 0

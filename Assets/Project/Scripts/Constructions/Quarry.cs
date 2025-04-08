@@ -5,7 +5,7 @@ using UnityEngine;
 public class Quarry : MonoBehaviour
 {
     [SerializeField] private GameObject _egyptianModel; 
-    List<(Vector3 position, float range, int id)> PointOfInterests = new List<(Vector3, float, int)>();
+    public List<GameEvent> PointOfInterests = new List<GameEvent>();
 
 
     [SerializeField] List<GameObject> pyramids = new List<GameObject>();
@@ -39,15 +39,7 @@ public class Quarry : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
-    IEnumerator CreateBoat(){
-        yield return new WaitForSeconds(10f);
-        Debug.Log("begin event");
-        var temp = (new Vector3(95f,12.3f,426.3f), 200f, 1);
-        PointOfInterests.Add(temp);
-        yield return new WaitForSeconds(20f);
-        Debug.Log("end event");
-        PointOfInterests.Clear();
-    }
+  
 
     // Update is called once per frame
     void Update()
@@ -61,7 +53,7 @@ public class Quarry : MonoBehaviour
         }*/
     }
 
-    public List<(Vector3 position, float range, int id)> GetPOI(){
+    public List<GameEvent> GetPOI(){
 
         return PointOfInterests;
     }

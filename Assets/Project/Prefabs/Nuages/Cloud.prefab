@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026703552435817828}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 10
   simulationSpeed: 5
   stopAction: 0
   cullingMode: 0
@@ -4943,7 +4943,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5.5, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 4, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4758870423063797134}
@@ -5046,7 +5046,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5113414951395646223}
-  - component: {fileID: 733781595788983710}
   - component: {fileID: 5387921062560257116}
   m_Layer: 10
   m_Name: Rain
@@ -5071,29 +5070,6 @@ Transform:
   - {fileID: 1431659400108342704}
   m_Father: {fileID: 2748996580760924841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &733781595788983710
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8571306051281706439}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.82
-  m_Height: 12.1165905
-  m_Direction: 1
-  m_Center: {x: 0, y: -6, z: 0}
 --- !u!114 &5387921062560257116
 MonoBehaviour:
   m_ObjectHideFlags: 0
