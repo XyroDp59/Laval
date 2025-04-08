@@ -60,6 +60,7 @@ public class Egyptian : MonoBehaviour
                     _posToGo = _pyramidToBuild.GetPos();
                     break;
                 case 2:
+                _pyramidToBuild.AddBlockToPyramide();
                     LeavePyramid();
                     _idBridgeBack = _pyramidToBuild.index;
                     _state = 3;
