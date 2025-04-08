@@ -957,6 +957,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &527811379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7313724207230446391, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
+  m_PrefabInstance: {fileID: 535154822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa58492b9ac9f45f19df62cd2c5be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &535154822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1074,6 +1085,17 @@ MonoBehaviour:
   - {fileID: 1194258841}
   - {fileID: 450427769}
   - {fileID: 1550203872}
+--- !u!114 &572765794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7313724207230446391, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
+  m_PrefabInstance: {fileID: 2101698564}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa58492b9ac9f45f19df62cd2c5be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &681537738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1453,26 @@ PrefabInstance:
       propertyPath: events.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3604458673167063435, guid: 844f0772a9d31ba439c24added651344, type: 3}
+      propertyPath: boatSpawns.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604458673167063435, guid: 844f0772a9d31ba439c24added651344, type: 3}
+      propertyPath: boatSpawns.Array.data[0]
+      value: 
+      objectReference: {fileID: 1583660114}
+    - target: {fileID: 3604458673167063435, guid: 844f0772a9d31ba439c24added651344, type: 3}
+      propertyPath: boatSpawns.Array.data[1]
+      value: 
+      objectReference: {fileID: 572765794}
+    - target: {fileID: 3604458673167063435, guid: 844f0772a9d31ba439c24added651344, type: 3}
+      propertyPath: boatSpawns.Array.data[2]
+      value: 
+      objectReference: {fileID: 1609820151}
+    - target: {fileID: 3604458673167063435, guid: 844f0772a9d31ba439c24added651344, type: 3}
+      propertyPath: boatSpawns.Array.data[3]
+      value: 
+      objectReference: {fileID: 527811379}
     - target: {fileID: 8151486899441890152, guid: 844f0772a9d31ba439c24added651344, type: 3}
       propertyPath: m_Name
       value: EventManager
@@ -2342,6 +2384,17 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 1}
   m_TimeToStationary: 0.5
+--- !u!114 &1583660114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7313724207230446391, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
+  m_PrefabInstance: {fileID: 1964298995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa58492b9ac9f45f19df62cd2c5be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1592333580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,6 +2462,17 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 3974c4525bc68e946ad9ccfa5d33c998, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1609820151 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7313724207230446391, guid: 1b82d230ff9014918809d2ae78c3f5dc, type: 3}
+  m_PrefabInstance: {fileID: 883909232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa58492b9ac9f45f19df62cd2c5be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1657390212
 GameObject:
   m_ObjectHideFlags: 0
