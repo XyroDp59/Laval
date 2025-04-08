@@ -34,7 +34,7 @@ public class Quarry : MonoBehaviour
     }
 
     IEnumerator CreateEgyptians(){
-        for (int i = 0; i<1000; i++){
+        for (int i = 0; i<200; i++){
             CreateEgyptian();
             yield return new WaitForSeconds(0.2f);
         }

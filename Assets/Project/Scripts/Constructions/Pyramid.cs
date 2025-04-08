@@ -5,13 +5,12 @@ using UnityEngine;
 public class Pyramid : MonoBehaviour
 {
     [SerializeField] List<GameObject> pyramideLayers = new List<GameObject>();
-    [SerializeField] int blocksPerLayers = 100;
+    [SerializeField] int blocksPerLayers = 50;
     int currentBlocksStoredInLayer = 0;
     int currentLayer = -1;
 
-
-
-
+    [SerializeField] private GameManager gameManager;
+    private bool _isFinished = false;
     
     [SerializeField] Transform pos;
     private int _nbEgyptian;
@@ -27,6 +26,7 @@ public class Pyramid : MonoBehaviour
 
     public void AddBlockToPyramide()
     {
+        if (currentLayer == pyramideLayers.Count -1 && !_isFinished) gameManager.condition++;
         if (currentLayer == pyramideLayers.Count -1) return;
 
         currentBlocksStoredInLayer++;
