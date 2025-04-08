@@ -640,8 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  validMesh: {fileID: 0}
-  brokenMesh: {fileID: 0}
+  validMesh: {fileID: 4248841470043757485, guid: f190c012aa63a404795537519d7e06b1, type: 3}
+  brokenMesh: {fileID: 4248841470043757485, guid: 88bbbb7a68660664180e6d560d73a833, type: 3}
   _isBroken: 0
   entry: {fileID: 259579544}
   exit: {fileID: 398435557}
@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  validMesh: {fileID: 0}
-  brokenMesh: {fileID: 0}
+  validMesh: {fileID: 4248841470043757485, guid: f190c012aa63a404795537519d7e06b1, type: 3}
+  brokenMesh: {fileID: 4248841470043757485, guid: 88bbbb7a68660664180e6d560d73a833, type: 3}
   _isBroken: 0
   entry: {fileID: 1109836763}
   exit: {fileID: 1985355958}
@@ -1934,8 +1934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  validMesh: {fileID: 0}
-  brokenMesh: {fileID: 0}
+  validMesh: {fileID: 4248841470043757485, guid: f190c012aa63a404795537519d7e06b1, type: 3}
+  brokenMesh: {fileID: 4248841470043757485, guid: 88bbbb7a68660664180e6d560d73a833, type: 3}
   _isBroken: 0
   entry: {fileID: 1781686715}
   exit: {fileID: 757514020}
@@ -2321,8 +2321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a695e3ea0f2ccde409775fc30450bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  validMesh: {fileID: 0}
-  brokenMesh: {fileID: 0}
+  validMesh: {fileID: 4248841470043757485, guid: f190c012aa63a404795537519d7e06b1, type: 3}
+  brokenMesh: {fileID: 4248841470043757485, guid: 88bbbb7a68660664180e6d560d73a833, type: 3}
   _isBroken: 0
   entry: {fileID: 347235156}
   exit: {fileID: 1452038429}
@@ -2560,7 +2560,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.24333334
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 2ab61e8dfd21a4cbd9a8917bb9bc1590, type: 2}
   m_BuildHeightMesh: 0
