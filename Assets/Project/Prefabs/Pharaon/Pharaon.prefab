@@ -5083,7 +5083,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3531765479278424254}
         m_TargetAssemblyTypeName: Pharaon, Assembly-CSharp
         m_MethodName: OnGrab
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5098,7 +5098,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3531765479278424254}
         m_TargetAssemblyTypeName: Pharaon, Assembly-CSharp
         m_MethodName: OnRelease
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5199,7 +5199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dee60dbf07f54635af5ab3924e374c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldParticles: {fileID: 7035156453689335175}
+  goldParticles: {fileID: 4082342518258367553}
+  particlesCollider: {fileID: 2894372473078046666}
   minSpeed: 1
 --- !u!1 &7035156453689335175
 GameObject:
