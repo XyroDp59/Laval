@@ -14,10 +14,11 @@ public class Bridge : MonoBehaviour
     List<Egyptian> _egyptiansOn = new List<Egyptian>();
     MeshFilter _meshFilter;
     UnityEngine.AI.NavMeshObstacle _obstacle;
+    private BoxCollider _collider;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _collider = GetComponent<BoxCollider>();
         _meshFilter = GetComponent<MeshFilter>();
         Bridges ??= new List<Bridge>();
         Bridges.Add(this);
@@ -34,6 +35,7 @@ IEnumerator niqueTaMere(){
     // Update is called once per frame
     void Update()
     {
+        _collider.enabled = _isBroken;
     }
 
     public bool IsValid(){
@@ -70,5 +72,16 @@ IEnumerator niqueTaMere(){
         _meshFilter.mesh = validMesh;
         _isBroken = false;
         _obstacle.center = new Vector3(0f,0f,1f);
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out XRControllerSpeed controller))
+        {
+            HandAnimator handAnimator = other.GetComponentInChildren<HandAnimator>();
+            if (!handAnimator) return;
+            handAnimator.Rumble(1, 0.2f);
+            Repair();
+        }
     }
 }
