@@ -25,5 +25,6 @@ public class DestroyableBlock : MonoBehaviour
         {
             Instantiate(constructionBlock, spawnPoint.transform.position, Quaternion.identity);
         }
+        Destroy(gameObject);
     }
 }

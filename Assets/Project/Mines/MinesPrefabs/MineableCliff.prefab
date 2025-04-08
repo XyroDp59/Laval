@@ -152,4 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnedBlockPrefab: {fileID: 5221390471530422820, guid: afe50fbbb67394d3693dbd1e0e5f0b18, type: 3}
   spawnedPoint: {fileID: 1598005802905693174}
-  minSpeed: 1
+  minSpeed: 1.5
