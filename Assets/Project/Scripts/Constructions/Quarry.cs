@@ -29,7 +29,7 @@ public class Quarry : MonoBehaviour
             nbPyramid = _pyramids.Count;
         }
 
-        //StartCoroutine(CreateEgyptians());
+        StartCoroutine(CreateEgyptians());
     }
 
     IEnumerator CreateEgyptians(){
