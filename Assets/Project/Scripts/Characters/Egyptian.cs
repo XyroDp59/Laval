@@ -11,6 +11,7 @@ public class Egyptian : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
 
 
+    private Animator _animator;
     private int _state;
     private Vector3 _posToGo;
     private int _idThingToDo;
@@ -28,6 +29,7 @@ public class Egyptian : MonoBehaviour
     {   
         _state = -1;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        _animator = GetComponentInChildren<Animator>();
 
         if (goQuarry.TryGetComponent<Quarry>(out _scQuarry)){
             _posQuarry = goQuarry.transform.position; 
@@ -40,6 +42,10 @@ public class Egyptian : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
+        Vector3 currentVelocity = agent.velocity;
+        float speed = currentVelocity.magnitude; // Vitesse actuelle en m/s
+        
+        _animator.SetFloat("SoldatSpeed", speed);
         if (_posToGo != null &&  (_posToGo - transform.position).sqrMagnitude < 10) // Arrive à destination ?
         {
             switch(_state){
