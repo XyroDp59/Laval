@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private NavMeshAgent agent;
+    private Vector3 targetPosition = Vector3.zero;
+    NavMeshPath path;
+
+    private void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        path = new NavMeshPath();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if (agent.CalculatePath(targetPosition, path) && targetPosition != Vector3.zero) return;
+        foreach (var bridge in Bridge.Bridges)
+        {
+            if (agent.CalculatePath(bridge.transform.position, path))
+            {
+                targetPosition = bridge.transform.position;
+                agent.SetDestination(targetPosition);
+                Debug.Log(bridge.name);
+                return;
+            }
+            Debug.Log("no destination");
+        }
     }
 }

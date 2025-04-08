@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bridge : MonoBehaviour
 {
+    public static List<Bridge> Bridges;
     [SerializeField] bool _isBroken;
     [SerializeField] Transform entry;
     [SerializeField] Transform exit;
@@ -12,6 +13,8 @@ public class Bridge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Bridges ??= new List<Bridge>();
+        Bridges.Add(this);
         _obstacle = GetComponent<UnityEngine.AI.NavMeshObstacle>();
         if (gameObject.name == "Pont (1)"){
                 Break();
